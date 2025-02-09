@@ -13,6 +13,7 @@
             height: 100vh;
             background-color: pink;
             font-family: Arial, sans-serif;
+            text-align: center;
         }
         h1 {
             color: red;
@@ -21,6 +22,9 @@
         .buttons {
             position: relative;
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
         button {
             padding: 15px 30px;
@@ -31,11 +35,11 @@
         }
         #yesButton {
             background-color: lightgreen;
+            position: relative;
         }
         #noButton {
             background-color: lightcoral;
-            position: absolute;
-            left: 50px;
+            position: relative;
         }
         #message {
             display: none;
