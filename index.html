@@ -50,6 +50,12 @@
             padding: 15px;
             border-radius: 10px;
         }
+        #reactionImage {
+            display: none;
+            margin-top: 20px;
+            width: 200px;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -59,14 +65,17 @@
         <button id="noButton" onclick="makeYesBigger()">No 😢</button>
     </div>
     <p id="message">I knew you wanted to be my Valentine! ❤️🥰</p>
+    <img id="reactionImage" src="" alt="Reaction">
 
     <script>
         let yesButton = document.getElementById("yesButton");
         let noButton = document.getElementById("noButton");
         let message = document.getElementById("message");
+        let reactionImage = document.getElementById("reactionImage");
         let size = 1.2;
         let colors = ["red", "blue", "purple", "yellow", "green"];
         let moveAmount = 20;
+        let noPressed = false;
 
         function makeYesBigger() {
             size += 0.3;
@@ -75,11 +84,19 @@
             yesButton.style.position = "relative";
             yesButton.style.left = `${Math.random() * moveAmount}px`;
             yesButton.style.top = `${Math.random() * moveAmount}px`;
+            
+            if (!noPressed) {
+                reactionImage.src = "sad.gif";
+                reactionImage.style.display = "block";
+                noPressed = true;
+            }
         }
 
         function sayYes() {
             message.style.display = "block";
             document.querySelector(".buttons").style.display = "none";
+            reactionImage.src = "happy.gif";
+            reactionImage.style.display = "block";
         }
     </script>
 </body>
