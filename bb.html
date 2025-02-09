@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💕</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: red;
+            font-size: 2rem;
+        }
+        .buttons {
+            position: relative;
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yesButton {
+            background-color: lightgreen;
+        }
+        #noButton {
+            background-color: lightcoral;
+            position: absolute;
+            left: 50px;
+        }
+        #message {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: white;
+            background: red;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine? 💖</h1>
+    <div class="buttons">
+        <button id="yesButton" onclick="sayYes()">Yes 💕</button>
+        <button id="noButton" onclick="makeYesBigger()">No 😢</button>
+    </div>
+    <p id="message">I knew you wanted to be my Valentine! ❤️🥰</p>
+
+    <script>
+        let yesButton = document.getElementById("yesButton");
+        let noButton = document.getElementById("noButton");
+        let message = document.getElementById("message");
+        let size = 1.2;
+        let colors = ["red", "blue", "purple", "yellow", "green"];
+        let moveAmount = 20;
+
+        function makeYesBigger() {
+            size += 0.3;
+            yesButton.style.transform = `scale(${size})`;
+            yesButton.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            yesButton.style.position = "relative";
+            yesButton.style.left = `${Math.random() * moveAmount}px`;
+            yesButton.style.top = `${Math.random() * moveAmount}px`;
+        }
+
+        function sayYes() {
+            message.style.display = "block";
+            document.querySelector(".buttons").style.display = "none";
+        }
+    </script>
+</body>
+</html>
